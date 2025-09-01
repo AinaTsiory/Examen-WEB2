@@ -8,7 +8,9 @@ function App() {
 
   return (
     <>
-     <div className='w-screen flex justify-center items-center'><h1 className='text-amber-600'>Hello world </h1></div>
+     <div className='w-screen flex justify-center items-center'><h1 className='text-amber-600'>Hello world </h1>
+        <button className='bg-blue-600'>click ici</button>
+     </div>
     </>
   )
 }
