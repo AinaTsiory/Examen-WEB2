@@ -1,18 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Routes, Route, Link } from "react-router-dom";
+import Sidebar from "./components/Sidebar"; 
+import Header from "./components/Header"; 
+import Dashboard from "./pages/Dashboard";
+import Expenses from "./pages/Expenses";
+import Incomes from "./pages/Incomes";
+import Profil from "./pages/Profil";
+import Receipt from "./pages/Receipt";
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-     <div className='w-screen flex justify-center items-center'><h1 className='text-amber-600'>Hello world </h1>
-        <button className='bg-blue-600'>click ici</button>
-     </div>
-    </>
-  )
+   return (
+    <div className="p-6">
+      < Header/>
+      <Sidebar />
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/expenses" element={<Expenses />} />
+        <Route path="/incomes" element={<Incomes />} />
+        <Route path="/profil" element={<Profil />} />
+        <Route path="/receipt" element={<Receipt />} />
+      </Routes>
+    </div>
+  );
 }
 
 export default App
