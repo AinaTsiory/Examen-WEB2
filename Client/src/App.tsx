@@ -1,9 +1,10 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import Sidebar from "./components/Sidebar"; 
 import Header from "./components/Header"; 
 import Dashboard from "./pages/Dashboard";
 import Expenses from "./pages/Expenses";
 import Incomes from "./pages/Incomes";
+import Categories from "./pages/Categories";
 import Profil from "./pages/Profil";
 import Receipt from "./pages/Receipt";
 import './App.css'
@@ -11,7 +12,7 @@ import './App.css'
 function App() {
 
    return (
-    <div className="p-6">
+    <div className="w-full h-screen m-0 p-0">
       < Header/>
       <Sidebar />
       <Routes>
@@ -19,6 +20,7 @@ function App() {
         <Route path="/expenses" element={<Expenses />} />
         <Route path="/incomes" element={<Incomes />} />
         <Route path="/profil" element={<Profil />} />
+        <Route path="/categories" element={<Categories />} />
         <Route path="/receipt" element={<Receipt />} />
       </Routes>
     </div>
