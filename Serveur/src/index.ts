@@ -21,6 +21,14 @@ const pool = new Pool({
 app.get('/', (req, res) => {
   res.send('API fonctionne !');
 });
+app.get('/utilisateurs', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM utilisateurs ORDER BY id_utilisateur DESC');
+    res.json(result.rows);
+  } catch (err: any) {
+    res.status(500).json({ error: err.message });
+  }
+});
 
 // Route test PostgreSQL
 app.get('/test-db', async (req, res) => {
