@@ -8,7 +8,7 @@ export default function Sidebar() {
         to="/"
         className={({ isActive }) =>
           isActive
-            ? "text-blue-400 pb-5 overflow-hidden w-full flex justify-center items-center"
+            ? "text-blue-500 pb-5 overflow-hidden w-full flex justify-center items-center"
             : "text-white hover:underline"
         }
       >
@@ -19,8 +19,8 @@ export default function Sidebar() {
         to="/"
         className={({ isActive }) =>
           isActive
-            ? "flex justify-start items-center font-semibold text-gray-800 bg-blue-100 border-l-4 border-blue-400 p-2.5 gap-2.5"
-            : "flex justify-start items-center text-gray-800 font-semibold p-2.5 gap-2.5 hover:border-l-4 hover:border-blue-400 hover:bg-blue-100"
+            ? "flex justify-start items-center font-semibold text-gray-800 bg-blue-100 border-l-4 border-blue-500 p-2.5 gap-2.5"
+            : "flex justify-start items-center text-gray-800 font-semibold p-2.5 gap-2.5 hover:border-l-4 hover:border-blue-500 hover:bg-blue-100"
         }
       >
         <img src={IconDashboard} 
@@ -32,8 +32,8 @@ export default function Sidebar() {
         to="/incomes"
         className={({ isActive }) =>
           isActive
-            ? "flex justify-start items-center font-semibold text-gray-800 bg-blue-100 border-l-4 border-blue-400 p-2.5 gap-2.5"
-            : "flex justify-start items-center text-gray-800 font-semibold p-2.5 gap-2.5 hover:border-l-4 hover:border-blue-400 hover:bg-blue-100"
+            ? "flex justify-start items-center font-semibold text-gray-800 bg-blue-100 border-l-4 border-blue-500 p-2.5 gap-2.5"
+            : "flex justify-start items-center text-gray-800 font-semibold p-2.5 gap-2.5 hover:border-l-4 hover:border-blue-500 hover:bg-blue-100"
         }
       >
         Incomes
@@ -42,8 +42,8 @@ export default function Sidebar() {
         to="/expenses"
         className={({ isActive }) =>
           isActive
-            ? "flex justify-start items-center font-semibold text-gray-800 bg-blue-100 border-l-4 border-blue-400 p-2.5 gap-2.5"
-            : "flex justify-start items-center text-gray-800 font-semibold p-2.5 gap-2.5 hover:border-l-4 hover:border-blue-400 hover:bg-blue-100"
+            ? "flex justify-start items-center font-semibold text-gray-800 bg-blue-100 border-l-4 border-blue-500 p-2.5 gap-2.5"
+            : "flex justify-start items-center text-gray-800 font-semibold p-2.5 gap-2.5 hover:border-l-4 hover:border-blue-500 hover:bg-blue-100"
         }
       >
         Expenses
@@ -52,8 +52,8 @@ export default function Sidebar() {
         to="/categories."
         className={({ isActive }) =>
           isActive
-            ? "flex justify-start items-center font-semibold text-gray-800 bg-blue-100 border-l-4 border-blue-400 p-2.5 gap-2.5"
-            : "flex justify-start items-center text-gray-800 font-semibold p-2.5 gap-2.5 hover:border-l-4 hover:border-blue-400 hover:bg-blue-100"
+            ? "flex justify-start items-center font-semibold text-gray-800 bg-blue-100 border-l-4 border-blue-500 p-2.5 gap-2.5"
+            : "flex justify-start items-center text-gray-800 font-semibold p-2.5 gap-2.5 hover:border-l-4 hover:border-blue-500 hover:bg-blue-100"
         }
       >
         Categories
@@ -62,8 +62,8 @@ export default function Sidebar() {
         to="/profil"
         className={({ isActive }) =>
           isActive
-            ? "flex justify-start items-center font-semibold text-gray-800 bg-blue-100 border-l-4 border-blue-400 p-2.5 gap-2.5"
-            : "flex justify-start items-center text-gray-800 font-semibold p-2.5 gap-2.5 hover:border-l-4 hover:border-blue-400 hover:bg-blue-100"
+            ? "flex justify-start items-center font-semibold text-gray-800 bg-blue-100 border-l-4 border-blue-500 p-2.5 gap-2.5"
+            : "flex justify-start items-center text-gray-800 font-semibold p-2.5 gap-2.5 hover:border-l-4 hover:border-blue-500 hover:bg-blue-100"
         }
       >
         Profil
@@ -72,8 +72,8 @@ export default function Sidebar() {
         to="/receipt"
         className={({ isActive }) =>
           isActive
-            ? "flex justify-start items-center font-semibold text-gray-800 bg-blue-100 border-l-4 border-blue-400 p-2.5 gap-2.5"
-            : "flex justify-start items-center text-gray-800 font-semibold p-2.5 gap-2.5 hover:border-l-4 hover:border-blue-400 hover:bg-blue-100"
+            ? "flex justify-start items-center font-semibold text-gray-800 bg-blue-100 border-l-4 border-blue-500 p-2.5 gap-2.5"
+            : "flex justify-start items-center text-gray-800 font-semibold p-2.5 gap-2.5 hover:border-l-4 hover:border-blue-500 hover:bg-blue-100"
         }
       >
         Receipt
