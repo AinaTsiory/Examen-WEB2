@@ -13,19 +13,23 @@ const pool = new Pool({
   user: process.env.DB_USER,
   host: process.env.DB_HOST,
   database: process.env.DB_NAME,
-  password: process.env.DB_PASS,
+  password: String(process.env.DB_PASS),
   port: Number(process.env.DB_PORT),
 });
 
+// Route test
 app.get('/', (req, res) => {
   res.send('API fonctionne !');
 });
+
+// Route pour récupérer les utilisateurs
 app.get('/utilisateurs', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM utilisateurs ORDER BY id_utilisateur DESC');
     res.json(result.rows);
-  } catch (err: any) {
-    res.status(500).json({ error: err.message });
+  } catch (err: unknown) {
+    if (err instanceof Error) res.status(500).json({ error: err.message });
+    else res.status(500).json({ error: 'Erreur inconnue' });
   }
 });
 
