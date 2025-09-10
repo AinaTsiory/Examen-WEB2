@@ -2,17 +2,17 @@ import { Routes, Route} from "react-router-dom";
 import Sidebar from "./components/Sidebar"; 
 import Header from "./components/Header"; 
 import Dashboard from "./pages/Dashboard";
-import Expenses from "./pages/Expenses";
-import Incomes from "./pages/Incomes";
+import Expenses from "./pages/Expenses/Expenses";
+import Incomes from "./pages/icomes/Incomes";
 import Categories from "./pages/Categories";
-import Profil from "./pages/Profil";
+import Profil from "./pages/profil/Profil";
 import Receipt from "./pages/Receipt";
 import './App.css'
 
 function App() {
 
    return (
-    <div className="w-full h-screen m-0 p-0">
+    <div className="w-full h-screen m-0 p-0 ">
       < Header/>
       <Sidebar />
       <Routes>
@@ -27,5 +27,6 @@ function App() {
   );
 }
 
+export default App
 
-export default function App() {
+
