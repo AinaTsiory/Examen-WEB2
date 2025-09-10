@@ -1,0 +1,39 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Logs
+logs
+*.log
+*.out
+*.pid
+*.seed
+*.pid.lock
+
+# Environnements
+.env
+.env.local
+.env.*.local
+
+# Systèmes d’exploitation
+.DS_Store
+Thumbs.db
+
+# IDE / Éditeurs
+.vscode/
+.idea/
+*.swp
+
+# Build / Output
+dist/
+build/
+coverage/
+.cache/
+
+# Dépendances temporaires
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
