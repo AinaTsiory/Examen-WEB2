@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-
 import IconDashboard from "../assets/icones/Grid 2_48px.png"
 import Iconprofil from "../assets/icones/Male User_50pxwhite.png"
 import IconIncome from "../assets/icones/Bank_48px.png"
@@ -9,7 +8,7 @@ import IconCategorie from "../assets/icones/Layers_50px.png"
 export default function Sidebar() {
   return (
     <nav className="w-1/6 mt-15 h-[100vh] fixed top-0 left-0 flex flex-col bg-blue-950 p-5 gap-1 shadow-[3px_0_6px_rgba(0,0,0,0.3)]">
-     
+
       <NavLink
         to="/"
         className={({ isActive }) =>

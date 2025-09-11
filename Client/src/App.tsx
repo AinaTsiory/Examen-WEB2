@@ -1,7 +1,7 @@
 import { Routes, Route} from "react-router-dom";
 import Sidebar from "./components/Sidebar"; 
 import Header from "./components/Header"; 
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/dashboard/Dashboard";
 import Expenses from "./pages/Expenses/Expenses";
 import Incomes from "./pages/icomes/Incomes";
 import Categories from "./pages/Categories";
