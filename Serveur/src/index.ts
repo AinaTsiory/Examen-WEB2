@@ -17,13 +17,7 @@ const pool = new Pool({
   port: Number(process.env.DB_PORT),
 });
 
-// Test API
-app.get('/', (req, res) => res.send('API fonctionne !'));
 
-// ---------------- Revenue Routes ----------------
-
-// Get all revenues
-app.get('/revenue', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM revenue ORDER BY id DESC');
     res.json(result.rows);
@@ -72,6 +66,5 @@ app.delete('/revenue/:id', async (req, res) => {
   }
 });
 
-// Launch server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
