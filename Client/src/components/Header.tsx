@@ -1,46 +1,98 @@
 import { NavLink } from "react-router-dom";
-import search from "../assets/icones/Search_26px.png"
-import calendrier from "../assets/icones/Calendar_2px.png"
-import chevron from "../assets/icones/Chevron Down_26px.png"
+import setting from "../assets/icones/icon-settign.png"
+import user from "../assets/icones/users.png"
+import Logo1 from "../assets/logo/logo1.png"
+import chevron from "../assets/icones/Chevron Down_50px.png"
 
 export default function Header() {
   return (
-    <div className=" bg-white w-5/6 absolute right-0 top-0 p-4 flex justify-between items-center pr-5 ">
-      <form className="bg-amber-100 w-100 flex justify-between border border-solid border-gray-300 overflow-hidden  rounded-tr rounded-br h-9">
-        <input type="text" className="bg-white w-95 pl-3 border-none focus:outline-none focus:border-none text-gray-700" placeholder="Search..." />
-        <button className="bg-blue-500 p-1 rounded">
-          <img src={search}
-            className=""
-            alt="" />
-        </button>
-      </form>
-      <div className=" flex justify-between items-center gap-8">
+    <div className="w-screen bg-white fixed right-0 top-0 p-4 flex justify-between items-center  z-10 shadow-[0px_3px_5px_rgba(0,0,0,0.3)]">
+       <NavLink
+        to="/"
+        className={({ isActive }) =>
+          isActive
+            ? "text-blue-500 overflow-hidden flex justify-center items-center "
+            : "text-white hover:underline "
+        }
+      >
+        <img src={Logo1}
+        className="w-40" alt="Logo" />
+      </NavLink>
+      <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive
+              ? "text-blue-950 text-2xl font-semibold  w-[980px]"
+              : "hidden"
+          }
+        >Dashboard</NavLink>
+      <NavLink
+          to="/incomes"
+          className={({ isActive }) =>
+            isActive
+              ? "text-blue-950 text-2xl font-semibold w-[980px]"
+              : "hidden"
+          }
+        >Income</NavLink>
+      <NavLink
+          to="/expenses"
+          className={({ isActive }) =>
+            isActive
+              ? "text-blue-950 text-2xl font-semibold w-[980px]"
+              : "hidden"
+          }
+        >Expense</NavLink>
+      <NavLink
+          to="/categories"
+          className={({ isActive }) =>
+            isActive
+              ? "text-blue-950 text-2xl font-semibold w-[980px]"
+              : "hidden"
+          }
+        >Categories</NavLink>
+      <NavLink
+          to="/profil"
+          className={({ isActive }) =>
+            isActive
+              ? "text-blue-950 text-2xl font-semibold w-[980px]"
+              : "hidden"
+          }
+        >Profile</NavLink>
+      <NavLink
+          to="/receipt"
+          className={({ isActive }) =>
+            isActive
+              ? "text-blue-950 text-2xl font-semibold w-[980px]"
+              : "hidden"
+          }
+        >Receipr</NavLink>
+      <div className=" flex justify-between items-center gap-6 ">
         <NavLink
           to="/profil"
           className={({ isActive }) =>
             isActive
-              ? "w-10 h-10 rounded-[50%] bg-linear-to-t from-red-500 to-red-300 text-red-100 text-2xl font-semibold flex justify-center items-center"
-              : "w-10 h-10 rounded-[50%] bg-linear-to-t from-red-500 to-red-300 text-red-100 text-2xl font-semibold flex justify-center items-center "
+              ? ""
+              :  ""
           }
         >
-          S
+          <img src={setting} alt="" />
+        </NavLink>
+        <NavLink
+          to="/profil"
+          className={({ isActive }) =>
+            isActive
+              ? ""
+              : ""
+          }
+        >
+          <img src={user} alt="" />
         </NavLink>
         <NavLink
           to=""
           className={({ isActive }) =>
             isActive
-              ? "w-10 h-10"
-              : "w-10 h-10"
-          }
-        >
-          <img src={calendrier} alt="" />
-        </NavLink>
-        <NavLink
-          to=""
-          className={({ isActive }) =>
-            isActive
-              ? "w-10 h-10 flex justify-center"
-              : "w-10 h-10 flex items-center"
+              ? "w-5 h-5"
+              : "w-5 h-5"
           }
         >
           <img src={chevron} alt="" />

@@ -17,34 +17,52 @@ const pool = new Pool({
   port: Number(process.env.DB_PORT),
 });
 
-// Route test simple
-app.get('/', (req, res) => {
-  res.send('API fonctionne !');
-});
-app.get('/utilisateurs', async (req, res) => {
+
   try {
-    const result = await pool.query('SELECT * FROM utilisateurs ORDER BY id_utilisateur DESC');
+    const result = await pool.query('SELECT * FROM revenue ORDER BY id DESC');
     res.json(result.rows);
-  } catch (err: any) {
-    res.status(500).json({ error: err.message });
+  } catch (err) {
+    res.status(500).json({ error: err instanceof Error ? err.message : 'Erreur inconnue' });
   }
 });
 
-// Route test PostgreSQL
-app.get('/test-db', async (req, res) => {
+// Add revenue
+app.post('/revenue', async (req, res) => {
+  const { user_id, source, amount, description } = req.body;
   try {
-    const result = await pool.query('SELECT NOW()');
-    res.json({ dbTime: result.rows[0] });
-  } catch (err: any) {
-    res.status(500).json({ error: err.message });
+    const result = await pool.query(
+      'INSERT INTO revenue (user_id, source, amount, description) VALUES ($1, $2, $3, $4) RETURNING *',
+      [user_id, source, amount, description]
+    );
+    res.json(result.rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: err instanceof Error ? err.message : 'Erreur inconnue' });
   }
 });
-app.get('/utilisateurs', async (req, res) => {
+
+// Edit revenue
+app.put('/revenue/:id', async (req, res) => {
+  const { id } = req.params;
+  const { source, amount, description } = req.body;
   try {
-    const result = await pool.query('SELECT * FROM utilisateurs ORDER BY id_utilisateur DESC');
-    res.json(result.rows);
-  } catch (err: any) {
-    res.status(500).json({ error: err.message });
+    const result = await pool.query(
+      'UPDATE revenue SET source=$1, amount=$2, description=$3 WHERE id=$4 RETURNING *',
+      [source, amount, description, id]
+    );
+    res.json(result.rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: err instanceof Error ? err.message : 'Erreur inconnue' });
+  }
+});
+
+// Delete revenue
+app.delete('/revenue/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    await pool.query('DELETE FROM revenue WHERE id=$1', [id]);
+    res.json({ message: 'Revenu supprimé avec succès' });
+  } catch (err) {
+    res.status(500).json({ error: err instanceof Error ? err.message : 'Erreur inconnue' });
   }
 });
 
