@@ -1,6 +1,6 @@
 export default function Receipt() {
   return (
-    <div className=" absolute left-[255px] top-20 w-[1195px]">
+    <div className=" absolute left-[255px] top-20 w-[1200px]">
        <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold text-gray-800">Incomes</h1>
         <button className="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
