@@ -203,7 +203,7 @@ export default function Incomes() {
         </div>
       </div>
 
-      {/* Delete Modal */}
+      
       {deleteIncome && (
         <div className="fixed inset-0 bg-black/30 flex justify-center items-center">
           <div className="w-[400px] rounded bg-white border border-gray-300 shadow-[5px_5px_10px_rgba(0,0,0,0.4)] p-4">
