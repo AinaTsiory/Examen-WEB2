@@ -6,7 +6,7 @@ import Expenses from "./pages/Expenses/Expenses";
 import Incomes from "./pages/icomes/Incomes";
 import Categories from "./pages/Categories";
 import Profil from "./pages/profil/Profil";
-import Receipt from "./pages/Receipt";
+import Receipt from "./pages/recu/Receipt";
 import './App.css'
 
 function App() {

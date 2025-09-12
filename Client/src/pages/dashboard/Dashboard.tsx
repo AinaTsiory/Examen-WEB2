@@ -1,5 +1,4 @@
-// import { useState } from "react";
-import Profile from "../../pages/profil/Profil";
+
 
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
