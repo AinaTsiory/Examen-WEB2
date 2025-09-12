@@ -1,32 +1,51 @@
-import { Routes, Route} from "react-router-dom";
-import Sidebar from "./components/Sidebar"; 
-import Header from "./components/Header"; 
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/authentification/Homes";
+import Login from "./pages/authentification/Login";
+import Signup from "./pages/authentification/Signup";
+import Profile from "./pages/authentification/Profile";
 import Dashboard from "./pages/dashboard/Dashboard";
-import Expenses from "./pages/Expenses/Expenses";
-import Incomes from "./pages/icomes/Incomes";
-import Categories from "./pages/Categories";
-import Profil from "./pages/profil/Profil";
-import Receipt from "./pages/Receipt";
-import './App.css'
+import Sidebar from "./components/Sidebar";
+import Header from "./components/Header";
+import "./app.css";
 
-function App() {
 
-   return (
-    <div className="w-full h-screen m-0 p-0 ">
-      < Header/>
+function DashboardLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex">
       <Sidebar />
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/expenses" element={<Expenses />} />
-        <Route path="/incomes" element={<Incomes />} />
-        <Route path="/profil" element={<Profil />} />
-        <Route path="/categories" element={<Categories />} />
-        <Route path="/receipt" element={<Receipt />} />
-      </Routes>
+      <div className="flex-1">
+        <Header />
+        <div className="p-4">{children}</div>
+      </div>
     </div>
   );
 }
 
-export default App
+export default function App() {
+  return (
+    <Routes>
+ 
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
 
 
+      <Route
+        path="/dashboard"
+        element={
+          <DashboardLayout>
+            <Dashboard />
+          </DashboardLayout>
+        }
+      />
+      <Route
+        path="/profile"
+        element={
+          <DashboardLayout>
+            <Profile />
+          </DashboardLayout>
+        }
+      />
+    </Routes>
+  );
+}
