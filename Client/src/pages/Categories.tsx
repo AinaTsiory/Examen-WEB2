@@ -1,16 +1,22 @@
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import iconPlus from "../assets/icones/Plus_48px.png";
 import iconEdit from "../assets/icones/edit.png";
 import iconDelete from "../assets/icones/delete.png";
 import iconMontant from "../assets/icones/Money Bag_50px.png";
-import iconDescription from "../assets/icones/Note_26px.png";
+// import iconDescription from "../assets/icones/Note_26px.png";
 import iconfois from "../assets/icones/Multiply_64px.png";
 
 
 
 export default function Categories() {
+  const [categories, setCategories] = useState<{ id: number; name: string }[]>([]);
    const [showForm, setShowForm] = useState(false); // état pour afficher/masquer le formulaire
+useEffect(() => {
+    fetch("http://localhost:5000/categories")
+      .then(res => res.json())
+      .then(data => setCategories(data))
+      .catch(err => console.error(err));
+  }, []);
 
   return (
     <div className="absolute left-[255px] top-20 w-[1200px]" >
@@ -28,27 +34,29 @@ export default function Categories() {
       {/* Liste des dépenses */}
       <div className="hidden md:grid grid-cols-5 gap-4 bg-gray-100 p-3 rounded-t-lg font-semibold text-gray-500">
         <div>Date</div>
-        <div>Montant</div>
         <div>Catégorie</div>
-        <div>Type</div>
         <div>Actions</div>
       </div>
 
       <div className="space-y-2">
-        <div className="grid md:grid-cols-5 gap-4 items-center bg-white p-4 rounded-lg shadow hover:shadow-md transition">
-          <div className="text-gray-700">10-01-25</div>
-          <div className="text-gray-800 font-medium">1000Ar</div>
-          <div className="text-gray-700">Aliment</div>
-          <div className="text-gray-600">one-time</div>
-          <div className="flex gap-3">
-            <button className="text-gray-500 border-2 border-solid p-1 rounded border-green-500 hover:cursor-pointer hover:bg-green-300 transition">
-              <img src={iconEdit} className="w-5 h-5" alt="" />
-            </button>
-            <button className="text-gray-500 border-2 border-solid p-1 rounded border-red-500 hover:cursor-pointer hover:bg-red-300 transition">
-              <img src={iconDelete} className="w-5 h-5" alt="" />
-            </button>
-          </div>
-        </div>
+        {categories.map(item => {
+          return (
+            <div key={item.id} className="grid md:grid-cols-5 gap-4 items-center bg-white p-4 rounded-lg shadow hover:shadow-md transition">
+              <div className="text-gray-700">10-01-25</div>
+              <div className="text-gray-700">{item.name}</div>
+              <div className="flex gap-3">
+                <button className="text-gray-500 border-2 border-solid p-1 rounded border-green-500 hover:cursor-pointer hover:bg-green-300 transition">
+                  <img src={iconEdit} className="w-5 h-5" alt="" />
+                </button>
+                <button className="text-gray-500 border-2 border-solid p-1 rounded border-red-500 hover:cursor-pointer hover:bg-red-300 transition">
+                  <img src={iconDelete} className="w-5 h-5" alt="" />
+                </button>
+              </div>
+            </div>
+          );
+        })}
+        {/* Exemple statique */}
+        
       </div>
 
       {/* Formulaire modal */}
@@ -82,66 +90,6 @@ export default function Categories() {
                   <img src={iconMontant} className="w-6 h-6" alt="" />
                 </div>
               </div>
-
-              <div className="relative">
-                <select className="w-full border border-gray-300 rounded pl-9 py-1 focus:outline-none text-gray-500">
-                  <option value="one-time">One-time</option>
-                  <option value="recurring">Recurring</option>
-                </select>
-                <div className="absolute top-[0.5px] bg-gradient-to-r from-blue-500 to-blue-800 h-[33px] flex justify-center items-center rounded-tl rounded-bl px-1">
-                  <img src={iconDescription} className="w-6 h-6" alt="" />
-                </div>
-              </div>
-
-              <div className="relative">
-                <input
-                  type="date"
-                  className="w-full border border-gray-300 rounded pl-9 py-1 focus:outline-none text-gray-700 no-calendar"
-                />
-                <div className="absolute top-[0.5px] bg-gradient-to-r from-blue-500 to-blue-800 h-[33px] flex justify-center items-center rounded-tl rounded-bl px-1">
-                  <img src={iconMontant} className="w-6 h-6" alt="" />
-                </div>
-              </div>
-
-              <div className="w-full relative flex justify-evenly gap-2">
-                <div className="w-1/2">
-                  <label className="text-gray-500 text-base">Date de début :</label>
-                  <input
-                    type="date"
-                    className="border border-gray-300 rounded pl-9 py-1 focus:outline-none text-gray-700 no-calendar"
-                  />
-                </div>
-                <div className="w-1/2">
-                  <label className="text-gray-500 text-base">Date de fin :</label>
-                  <input
-                    type="date"
-                    className="border border-gray-300 rounded pl-9 py-1 focus:outline-none text-gray-700 no-calendar"
-                  />
-                </div>
-              </div>
-
-              <div className="relative">
-                <select className="w-full border border-gray-300 rounded pl-9 py-1 focus:outline-none text-gray-500">
-                  <option value="">-- Choisir une catégorie --</option>
-                  <option value="food">Alimentation</option>
-                  <option value="transport">Transport</option>
-                  <option value="entertainment">Divertissement</option>
-                </select>
-                <div className="absolute top-[0.5px] bg-gradient-to-r from-blue-500 to-blue-800 h-[33px] flex justify-center items-center rounded-tl rounded-bl px-1">
-                  <img src={iconMontant} className="w-6 h-6" alt="" />
-                </div>
-              </div>
-
-              <div className="relative">
-                <textarea
-                  className="w-full h-[33px] border border-gray-300 rounded pl-9 py-1 focus:outline-none text-gray-700"
-                  placeholder="Entrer votre description..."
-                ></textarea>
-                <div className="absolute top-[0.5px] bg-blue-500 h-[33px] flex justify-center items-center rounded-tl rounded-bl px-1">
-                  <img src={iconDescription} className="w-6 h-6" alt="" />
-                </div>
-              </div>
-
               <button className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-blue-800 text-white rounded-md transition px-6 py-2 hover:bg-gradient-to-t hover:cursor-pointer">
                 Ajouter
               </button>

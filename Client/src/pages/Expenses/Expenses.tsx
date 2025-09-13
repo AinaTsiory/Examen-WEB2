@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import iconPlus from "../../assets/icones/Plus_48px.png";
 import iconEdit from "../../assets/icones/edit.png";
 import iconDelete from "../../assets/icones/delete.png";
@@ -6,6 +7,7 @@ import iconMontant from "../../assets/icones/Money Bag_50px.png";
 import iconDescription from "../../assets/icones/Note_26px.png";
 import iconfois from "../../assets/icones/Multiply_64px.png";
 import iconAlert from "../../assets/icones/avertissement.png";
+import iconRecu from "../../assets/icones/Downloadpx.png";
 
 type Expense = {
   id_depense: number;
@@ -36,6 +38,7 @@ export default function Expenses() {
   const [expenses, setExpenses] = useState<Expense[]>([]);
   const [editExpense, setEditExpense] = useState<Expense | null>(null);
   const [deleteExpense, setDeleteExpense] = useState<Expense | null>(null);
+  const navigate = useNavigate();
 
   // Récupération des dépenses depuis le backend
   useEffect(() => {
@@ -136,6 +139,11 @@ export default function Expenses() {
       console.error(err);
     }
   };
+const formatDate = (dateStr: string) => {
+  if (!dateStr) return "-";
+  const date = new Date(dateStr);
+  return date.toLocaleDateString(); // ou utilise le format personnalisé ci-dessous
+};
 
 
   return (
@@ -157,31 +165,36 @@ export default function Expenses() {
         <div>Montant</div>
         <div>Catégorie</div>
         <div>Type</div>
-        <div>Date début</div>
-        <div>Date fin</div>
+        <div>Description</div>
         <div>Actions</div>
       </div>
       <div className="space-y-2">
-        {expenses.map(item => (
-          <div key={item.id_depense} className="grid md:grid-cols-7 gap-4 items-center bg-white p-4 rounded-lg shadow hover:shadow-md transition">
-            <div className="text-gray-700">{item.date_depense || "-"}</div>
-            <div className="text-gray-800 font-medium">{item.montant} Ar</div>
-            <div className="text-gray-700">
-              {categories.find(c => c.id === item.categorie_id)?.name || "—"}
+        {expenses.map(item => {
+          return (
+            <div key={item.id_depense} className="grid md:grid-cols-7 gap-4 items-center bg-white p-4 rounded-lg shadow hover:shadow-md transition">
+              <div className="text-gray-700">{formatDate(item.date_depense)}</div>
+              <div className="text-gray-800 font-medium">{item.montant} Ar</div>
+              <div className="text-gray-700">
+                {categories.find(c => c.id === item.categorie_id)?.name || "—"}
+              </div>
+              <div className="text-gray-700">{item.description}</div>
+              <div className="text-gray-600">{item.type}</div>
+              {/* <div className="text-gray-600">{formatDate(item.date_depense)}</div>
+              <div className="text-gray-600">{formatDate(item.date_depense)}</div> */}
+              <div className="flex gap-3">
+                <button className="text-gray-500 border-2 border-green-500 p-1 rounded hover:bg-green-300 transition" onClick={() => handleEdit(item)}>
+                  <img src={iconEdit} className="w-5 h-5" alt="" />
+                </button>
+                <button className="text-gray-500 border-2 border-red-500 p-1 rounded hover:bg-red-300 transition" onClick={() => setDeleteExpense(item)}>
+                  <img src={iconDelete} className="w-5 h-5" alt="" />
+                </button>
+                <button className="text-gray-500 border-2 border-blue-500 p-1 rounded hover:bg-blue-300 transition" onClick={() => navigate(`/receipt/${item.id_depense}`)}>
+                  <img src={iconRecu} className="w-5 h-5" alt="" />
+                </button>
+              </div>
             </div>
-            <div className="text-gray-600">{item.type}</div>
-            <div className="text-gray-600">{item.date_debut || "-"}</div>
-            <div className="text-gray-600">{item.date_fin || "-"}</div>
-            <div className="flex gap-3">
-              <button className="text-gray-500 border-2 border-green-500 p-1 rounded hover:bg-green-300 transition" onClick={() => handleEdit(item)} >
-                <img src={iconEdit} className="w-5 h-5" alt="" />
-              </button>
-              <button className="text-gray-500 border-2 border-red-500 p-1 rounded hover:bg-red-300 transition" onClick={() => setDeleteExpense(item)} >
-                <img src={iconDelete} className="w-5 h-5" alt="" />
-              </button>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Modal Formulaire */}
