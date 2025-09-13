@@ -11,7 +11,7 @@ import iconAlert from "../../assets/icones/avertissement.png";
 type Income = {
   id: number;
   user_id: number;
-  source: string;
+  source: string; 
   amount: number;
   description: string;
   date_revenue: string;
@@ -96,11 +96,11 @@ export default function Incomes() {
     <div className="absolute left-[255px] top-20 w-[1195px]">
       <div className="flex justify-between items-center mb-6">
         <button
-          className="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
+          className="flex items-center gap-2b bg-gradient-to-r from-blue-500 to-blue-800 text-white rounded-md transition px-6 py-2 hover:bg-gradient-to-t hover:from-800 hover:via-blue-900 hover:to-blue-800 hover:cursor-pointer"
           onClick={() => { setShowForm(true); setEditIncome(null); setSource(""); setAmount(""); setDescription(""); }}
         >
           <img src={iconPlus} className="w-5 h-5" alt="" />
-          Add Income
+          Ajout de revenu
         </button>
       </div>
 

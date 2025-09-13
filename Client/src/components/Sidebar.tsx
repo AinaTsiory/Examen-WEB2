@@ -34,7 +34,7 @@ export default function Sidebar() {
         <img src={IconDashboard} 
         className="w-5 h-5"
         alt="" />
-        Dashboard
+        Tableau de board
       </NavLink>
       <NavLink
         to="/incomes"
@@ -47,7 +47,7 @@ export default function Sidebar() {
         <img src={IconIncome} 
         className="w-5 h-5"
         alt="" />
-        Incomes
+        Revenues
       </NavLink>
       <NavLink
         to="/expenses"
@@ -60,7 +60,7 @@ export default function Sidebar() {
         <img src={IconExpense} 
         className="w-5 h-5"
         alt="" />
-        Expenses
+        Depenses
       </NavLink>
       <NavLink
         to="/categories"
@@ -73,7 +73,7 @@ export default function Sidebar() {
         <img src={IconCategorie} 
         className="w-5 h-5"
         alt="" />
-        Categories
+        Catégories
       </NavLink>
       <NavLink
         to="/profil"
@@ -86,7 +86,7 @@ export default function Sidebar() {
         <img src={Iconprofil} 
         className="w-5 h-5"
         alt="" />
-        Profil
+        Profile
       </NavLink>
       <NavLink
         to="/receipt"

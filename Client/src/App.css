@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+/* Dans ton fichier styles.css ou global.css */
+@layer utilities {
+  .no-calendar::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+  }
+  .no-calendar::-moz-calendar-picker-indicator {
+    display: none;
+  }
+}
+
+
+

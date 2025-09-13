@@ -25,7 +25,7 @@ export default function Header() {
               ? "text-blue-950 text-2xl font-semibold  w-[980px]"
               : "hidden"
           }
-        >Dashboard</NavLink>
+        >Tableau de board</NavLink>
       <NavLink
           to="/incomes"
           className={({ isActive }) =>
@@ -33,7 +33,7 @@ export default function Header() {
               ? "text-blue-950 text-2xl font-semibold w-[980px]"
               : "hidden"
           }
-        >Income</NavLink>
+        >Revenues</NavLink>
       <NavLink
           to="/expenses"
           className={({ isActive }) =>
@@ -41,7 +41,7 @@ export default function Header() {
               ? "text-blue-950 text-2xl font-semibold w-[980px]"
               : "hidden"
           }
-        >Expense</NavLink>
+        >Depenses</NavLink>
       <NavLink
           to="/categories"
           className={({ isActive }) =>
@@ -49,7 +49,7 @@ export default function Header() {
               ? "text-blue-950 text-2xl font-semibold w-[980px]"
               : "hidden"
           }
-        >Categories</NavLink>
+        >Catégories</NavLink>
       <NavLink
           to="/profil"
           className={({ isActive }) =>
@@ -65,7 +65,7 @@ export default function Header() {
               ? "text-blue-950 text-2xl font-semibold w-[980px]"
               : "hidden"
           }
-        >Receipr</NavLink>
+        >Réçu</NavLink>
       <div className=" flex justify-between items-center gap-6 ">
         <NavLink
           to="/profil"
